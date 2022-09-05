@@ -1,51 +1,89 @@
 /**
- * Represents a book.
- * @constructor
- * @param {string} title - The title of the book.
- * @param {string} author - The author of the book.
+ * choyj109 님의 작업 내용을 참고하였습니다.
+ * [링크](https://github.com/choyj109/wanted-pre-onboarding-challenge-fe-2/blob/main/src/index.js)
  */
-function Book(title, author) {}
 
 /**
- * Both of these will link to the bar function.
- * @see {@link bar}
- * @see bar
+ * Todo 타입 정의
+ * @typeof {Object} Todo
+ * @property {string} id - The id of the todo. (required)
+ * @property {string} content - The content of the todo. (required)
+ * @property {boolean} isCompleted - whether the todo is completed. (required)
+ * @property {string} category - The category of the todo. (required)
+ * @property {string[]} tags - The tags of the todo. (optional)
  */
-function foo() {}
-
-// Use the inline {@link} tag to include a link within a free-form description.
-/**
- * @see {@link foo} for further information.
- * @see {@link http://github.com|GitHub}
- */
-function bar() {}
+const Todo = {};
 
 /**
- * Generic dairy product.
- * @constructor
+ * createTodo - Todo 추가
+ * @function createTodo
+ * @param {string} content - The content of the todo. (required)
+ * @param {string} category - The category of the todo. (required)
+ * @param {string[]} tags - The tags of the todo. (optional)
+ * @return {Object} Todo
  */
-function DairyProduct() {}
+const createTodo = ({ content, category, tags }) => {};
 
 /**
- * Check whether the dairy product is solid at room temperature.
- * @abstract
+ * getAllTodo - 전체 Todo 조회
+ * @function getAllTodo
+ * @return {Array} Todo
+ */
+const getAllTodo = () => {};
+
+/**
+ * getTodo - 특정 Todo 조회
+ * @function getTodo
+ * @param {string} id - The id of the todo. (required)
+ * @return {Object} Todo
+ */
+const getTodo = ({ id }) => {};
+
+/**
+ * updateTodo - Todo 수정
+ * @function updateTodo
+ * @param {string} id - The id of the todo. (required)
+ * @param {string} content - The content of the todo. (required)
+ * @param {string} category - The category of the todo. (required)
+ * @return {Object} Todo
+ */
+const updateTodo = ({ id, content, category }) => {};
+
+/**
+ * updateTodoTag - 특정 Todo의 태그 수정
+ * @function updateTodoTag
+ * @param {string} id - The id of the todo. (required)
+ * @param {string[]} tags - The tags of the todo. (optional)
+ * @return {Object} Todo
+ */
+const updateTodoTag = ({ id, tags }) => {};
+
+/**
+ * isTodoCompleted - Todo의 완료 여부
+ * @param {string} id - The id of the todo. (required)
+ * @param {boolean} isCompleted - whether the todo is completed. (required)
  * @return {boolean}
  */
-DairyProduct.prototype.isSolid = function () {
-	throw new Error('must be implemented by subclass!');
-};
+const isTodoCompleted = ({ id, isCompleted }) => {};
 
 /**
- * Cool, refreshing milk.
- * @constructor
- * @augments DairyProduct
+ * deleteTodo - Todo 삭제
+ * @function deleteTodo
+ * @param {string} id - The id of the todo. (required)
  */
-function Milk() {}
+const deleteTodo = ({ id }) => {};
 
 /**
- * Check whether milk is solid at room temperature.
- * @return {boolean} Always returns false.
+ * deleteAllTodo - 전체 Todo 삭제
+ * @function deleteAllTodo
  */
-Milk.prototype.isSolid = function () {
-	return false;
-};
+const deleteAllTodo = () => {};
+
+/**
+ * deleteAllTodoTags - 특정 Todo의 태그 전체 삭제
+ * @function deleteAllTodoTags
+ * @param {string} id - The id of the todo. (required)
+ * @param {string[]} tags - The tags of the todo. (optional)
+ * @return {Object} Todo
+ */
+const deleteAllTodoTags = ({ id, tags }) => {};
