@@ -1,67 +1,71 @@
 /**
- * choyj109 님의 작업 내용을 참고하였습니다.
+ * 1주차 과제(타입 선언): choyj109 님의 과제를 참고하여 작성하였습니다.
  * [링크](https://github.com/choyj109/wanted-pre-onboarding-challenge-fe-2/blob/main/src/index.js)
+ */
+
+/**
+ * 2주차 과제(JS 구현)
  */
 
 /**
  * Todo 타입 정의
  * @typeof {Object} Todo
- * @property {string} id - The id of the todo. (required)
- * @property {string} content - The content of the todo. (required)
- * @property {boolean} isCompleted - whether the todo is completed. (required)
- * @property {string} category - The category of the todo. (required)
- * @property {string[]} tags - The tags of the todo. (optional)
+ * @property {string} id (required)
+ * @property {string} content (required)
+ * @property {boolean} isCompleted (required)
+ * @property {string} category (required)
+ * @property {string[]} tags (optional)
  */
 const Todo = {};
 
 /**
  * createTodo - Todo 추가
  * @function createTodo
- * @param {string} content - The content of the todo. (required)
- * @param {string} category - The category of the todo. (required)
- * @param {string[]} tags - The tags of the todo. (optional)
- * @return {Object} Todo
+ * @param {string} content (required)
+ * @param {string} category (required)
+ * @param {string[]} tags (optional)
+ * @return {Object} Todo 객체
  */
 const createTodo = ({ content, category, tags }) => {};
 
 /**
  * getAllTodo - 전체 Todo 조회
  * @function getAllTodo
- * @return {Array} Todo
+ * @return {Array} Todo 리스트 배열
  */
 const getAllTodo = () => {};
 
 /**
  * getTodo - 특정 Todo 조회
  * @function getTodo
- * @param {string} id - The id of the todo. (required)
- * @return {Object} Todo
+ * @param {string} id (required)
+ * @return {Object} Todo 객체
  */
 const getTodo = ({ id }) => {};
 
 /**
  * updateTodo - Todo 수정
  * @function updateTodo
- * @param {string} id - The id of the todo. (required)
- * @param {string} content - The content of the todo. (required)
- * @param {string} category - The category of the todo. (required)
- * @return {Object} Todo
+ * @param {string} id (required)
+ * @param {string} content (required)
+ * @param {string} category (required)
+ * @return {Object} Todo 객체
  */
 const updateTodo = ({ id, content, category }) => {};
 
 /**
  * updateTodoTag - 특정 Todo의 태그 수정
- * @function updateTodoTag
- * @param {string} id - The id of the todo. (required)
- * @param {string[]} tags - The tags of the todo. (optional)
- * @return {Object} Todo
+ * @function updateTodoTags
+ * @param {string} id (required)
+ * @param {string[]} tags (optional)
+ * @return {Object} Todo 객체
  */
-const updateTodoTag = ({ id, tags }) => {};
+const updateTodoTags = ({ id, tags }) => {};
 
 /**
  * isTodoCompleted - Todo의 완료 여부
- * @param {string} id - The id of the todo. (required)
- * @param {boolean} isCompleted - whether the todo is completed. (required)
+ * @param {string} id (required)
+ * @param {boolean} isCompleted (required)
  * @return {boolean}
  */
 const isTodoCompleted = ({ id, isCompleted }) => {};
@@ -69,7 +73,7 @@ const isTodoCompleted = ({ id, isCompleted }) => {};
 /**
  * deleteTodo - Todo 삭제
  * @function deleteTodo
- * @param {string} id - The id of the todo. (required)
+ * @param {string} id (required)
  */
 const deleteTodo = ({ id }) => {};
 
@@ -82,8 +86,7 @@ const deleteAllTodo = () => {};
 /**
  * deleteAllTodoTags - 특정 Todo의 태그 전체 삭제
  * @function deleteAllTodoTags
- * @param {string} id - The id of the todo. (required)
- * @param {string[]} tags - The tags of the todo. (optional)
- * @return {Object} Todo
+ * @param {string} id (required)
+ * @return {Object} Todo 객체
  */
-const deleteAllTodoTags = ({ id, tags }) => {};
+const deleteAllTodoTags = ({ id }) => {};
