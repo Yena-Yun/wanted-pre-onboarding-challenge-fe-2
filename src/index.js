@@ -16,7 +16,25 @@
  * @property {string} category (required)
  * @property {string[]} tags (optional)
  */
-const Todo = {};
+const Todo = ({ id, content, isCompleted, category, tags }) => {
+  return {
+    id,
+    content,
+    isCompleted,
+    category,
+    tags,
+  };
+};
+
+/**
+ * Todo List 타입 정의
+ * @typeof {Array} TodoList
+ * @return {Todo[]} Todo 배열
+ */
+const todoList = [];
+const TodoList = (todo) => {
+  return [...todoList, todo];
+};
 
 /**
  * createTodo - Todo 추가
@@ -26,14 +44,20 @@ const Todo = {};
  * @param {string[]} tags (optional)
  * @return {Object} Todo 객체
  */
-const createTodo = ({ content, category, tags }) => {};
+const createTodo = ({ content, category, tags }) => {
+  const newTodo = new Todo({ content, category, tags });
+  TodoList({ todo: newTodo });
+  return newTodo;
+};
 
 /**
  * getAllTodo - 전체 Todo 조회
  * @function getAllTodo
  * @return {Array} Todo 리스트 배열
  */
-const getAllTodo = () => {};
+const getAllTodo = () => {
+  return TodoList();
+};
 
 /**
  * getTodo - 특정 Todo 조회
@@ -41,7 +65,9 @@ const getAllTodo = () => {};
  * @param {string} id (required)
  * @return {Object} Todo 객체
  */
-const getTodo = ({ id }) => {};
+const getTodo = ({ id }) => {
+  return TodoList().filter((todo) => todo.id === id);
+};
 
 /**
  * updateTodo - Todo 수정
@@ -51,7 +77,13 @@ const getTodo = ({ id }) => {};
  * @param {string} category (required)
  * @return {Object} Todo 객체
  */
-const updateTodo = ({ id, content, category }) => {};
+const updateTodo = ({ id, content, category }) => {
+  const updatedTodo = TodoList().map((todo) =>
+    todo.id === id ? { ...todo, content, category } : todo
+  );
+
+  return updatedTodo;
+};
 
 /**
  * updateTodoTag - 특정 Todo의 태그 수정
@@ -60,28 +92,43 @@ const updateTodo = ({ id, content, category }) => {};
  * @param {string[]} tags (optional)
  * @return {Object} Todo 객체
  */
-const updateTodoTags = ({ id, tags }) => {};
+const updateTodoTags = ({ id, tags }) => {
+  const tagUpdatedTodo = TodoList().map((todo) =>
+    todo.id === id ? { ...todo, tags } : todo
+  );
+
+  return tagUpdatedTodo;
+};
 
 /**
- * isTodoCompleted - Todo의 완료 여부
+ * isTodoCompleted - Todo 완료여부 변경
  * @param {string} id (required)
- * @param {boolean} isCompleted (required)
- * @return {boolean}
+ * @return {Object} Todo 객체
  */
-const isTodoCompleted = ({ id, isCompleted }) => {};
+const toggleTodoCompleted = ({ id }) => {
+  const willUpdateToggleTodo = TodoList().map((todo) =>
+    todo.id === id ? { ...todo, isCompleted: !isCompleted } : todo
+  );
+  return willUpdateToggleTodo;
+};
 
 /**
  * deleteTodo - Todo 삭제
  * @function deleteTodo
  * @param {string} id (required)
  */
-const deleteTodo = ({ id }) => {};
+const deleteTodo = ({ id }) => {
+  const todoDeletedList = TodoList().map((todo) => todo.id !== id);
+  todoList = [...todoDeletedList];
+};
 
 /**
  * deleteAllTodo - 전체 Todo 삭제
  * @function deleteAllTodo
  */
-const deleteAllTodo = () => {};
+const deleteAllTodo = () => {
+  todoList = [];
+};
 
 /**
  * deleteAllTodoTags - 특정 Todo의 태그 전체 삭제
@@ -89,4 +136,9 @@ const deleteAllTodo = () => {};
  * @param {string} id (required)
  * @return {Object} Todo 객체
  */
-const deleteAllTodoTags = ({ id }) => {};
+const deleteAllTodoTags = ({ id }) => {
+  const tagDeleteTodo = TodoList().map((todo) =>
+    todo.id === id ? { ...todo, tags: [] } : todo
+  );
+  return tagDeleteTodo;
+};
